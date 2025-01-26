@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>My Library ({{ current_user }})</h3>
+<ul>
+{% for book in books %}
+    <li>
+        {{ book.filename }}
+        [<a href="{{ url_for('view_pdf', book_id=book.id) }}" target="_blank">Open</a>]
+    </li>
+{% endfor %}
+</ul>
+<h4>Other Users</h4>
+<ul>
+{% for user in users %}
+    <li>
+        <a href="{{ url_for('user_library', username=user.username) }}">
+            {{ user.username }}'s Library
+        </a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

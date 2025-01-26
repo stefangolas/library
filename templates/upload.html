@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Upload PDF</h3>
+<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+    <input type="file" name="pdf_file" accept="application/pdf" required>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}

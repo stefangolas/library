@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple PDF Library</title>
+</head>
+<body>
+    <h2>Simple PDF Library</h2>
+    <nav>
+        {% if 'user_id' in session %}
+            <a href="{{ url_for('my_library') }}">My Library</a> |
+            <a href="{{ url_for('upload') }}">Upload PDF</a> |
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a> |
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+        <hr>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
